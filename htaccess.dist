@@ -1,0 +1,4 @@
+RewriteEngine   On
+RewriteBase     /
+RewriteCond     %{REQUEST_URI}  !index\.html            [NC]
+RewriteRule     .*              /index.html#%1          [R,NE,L]

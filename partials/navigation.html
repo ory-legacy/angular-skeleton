@@ -1,0 +1,17 @@
+<script type="text/ng-template" id="navigation-nested.html">
+
+    <a href="#{{item.url}}"
+       class="{{item.children && 'dropdown-toggle'}}"
+       data-toggle="{{item.children && 'dropdown'}}" role="button" aria-expanded="false">{{item.title}}
+        <span class="caret" ng-if="item.children"></span></a>
+
+    <ul ng-if="item.children" class="dropdown-menu" role="menu">
+        <li ng-repeat="item in item.children" ng-include="'navigation-nested.html'">
+        </li>
+    </ul>
+</script>
+
+<li role="presentation"
+    ng-repeat="item in navigation"
+    ng-include="'navigation-nested.html'"
+    class="{{item.active && 'active'}} {{item.children && 'dropdown'}}"></li>
