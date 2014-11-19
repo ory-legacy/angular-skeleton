@@ -1,4 +1,4 @@
-angular-skeleton
+angular-simple-app
 ================
 
 Baldur.io is a *Content Repository*, similar to traditional *Content Management Systems (CMS)* like *Drupal*, *Wordpress*,
@@ -11,8 +11,16 @@ You're not a developer? Don't be afraid. It's really simple.
 
 You are a developer? Don't be afraid. You may find more advanced skeletons here:
 
-* Skeleton for a protected website.
-* Skeleton for an advanced Application based on **user generated content**.
+* Webapp built with nodejs, npm, bower and tests.
+* A protected website.
+* A Website based on user generated content.
+* ...
+
+Baldur works with all programming languages. There are some libraries which help you to progress faster:
+* Java Library
+* PHP Library
+* Go Library
+* ...
 
 ## Install
 
