@@ -20,9 +20,12 @@ You are a developer? Don't be afraid. You may find more advanced skeletons here:
 * Baldur provides you with a *public access token*. Copy that into your clipboard!
 * [Download (missing link)](/) the package and extract it anywhere you want.
 * Open `config.json` and replace `enter your token here` with the *public access token* you just copied.
-* Drag & drop `index.html` onto your browser (or use Apache/Ngnix/...)
+* You will need Apache, Ngnix or some other http service to serve your web app. For development we precompiled a http service:
+ * [Windows x64 HTTP Server](/)
+ * [Linux x64 HTTP Server](/)
+ * [Mac OS x64 HTTP Server](/)
 
-You are now able to [edit (missing link)](/) or [create (missing link)](/) pages. The website will update these
+You may [edit (missing link)](/) or [create (missing link)](/) pages or content. The website will update these
 contents automatically.
 
 ## Customize your website
