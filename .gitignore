@@ -7,6 +7,5 @@ tmp
 angular-phonecat-snapshots
 bower_components/
 *.log
-config.json
 .htaccess
 *.exe
