@@ -9,7 +9,13 @@ app.directive('baldurNavigation', function ($q, $http) {
         scope: {},
         link: function (scope, element, attrs) {
             var name = attrs.baldurNavigation;
-            $http.get('mock/navigations/' + name + '.json').then(function(result) {
+            $http.get('mock/navigations/' + name + '.json').then(function (result) {
+
+                // This app relies on relative paths, not absolute ones. Therefore we need to strip the leading /
+                angular.forEach(result.data, function (v, k) {
+                    result.data[k].url = v.url.substr(1, v.length);
+                });
+
                 scope.navigation = result.data;
             });
         },
@@ -19,26 +25,45 @@ app.directive('baldurNavigation', function ($q, $http) {
     };
 });
 
-app.directive('baldurPage', function ($compile, $http, $location) {
+app.directive('baldurRender', ["$compile", "$http", "$location", function ($compile, $http, $location) {
     return {
         restrict: 'EA',
-        scope: {},
+        scope: {
+            scope: '='
+        },
         link: function (scope, element, attrs) {
+            var render = function () {
+                var route = $location.url();
 
-            console.log($location.url());
-
-            // Todo
-            var route = '/home';
-
-            $http.post('mock/mapper/' + route + '.json', {url: route}).then(function(resolved) {
-                $http.get('mock/nodes/' + resolved.data.id + '.json').then(function(node) {
-                    $http.get('partials/nodes/' + node.data.type + ".html").then(function(template){
-                        scope = angular.extend(scope, node.data);
-                        element.html(template.data);
-                        $compile(element.contents())(scope);
+                var fetchCallBack = function (id) {
+                    $http.get('mock/nodes/' + id + '.json').then(function (node) {
+                        $http.get(attrs.templateDir.replace(/\/$/, '') + '/' + node.data.type + ".html").then(function (template) {
+                            var s = angular.extend(scope, node.data);
+                            element.append(template.data);
+                            $compile(element.contents())(s);
+                        });
                     });
-                })
+                };
+
+                if (scope.scope !== undefined) {
+                    var s = scope.scope;
+                    if (s.id !== undefined) {
+                        fetchCallBack(s.id);
+                    } else {
+                        console.log("Scope needs to be an object containing the property id, got", s);
+                    }
+                } else {
+                    $http.post('mock/mapper/' + route + '.json', {url: route}).then(function (resolved) {
+                        fetchCallBack(resolved.data.id);
+                    });
+                }
+            };
+
+            render();
+
+            scope.$watch("$routeChangeStart", function (event, next, current) {
+                console.log("wowy",  $location.url());
             });
         }
-    };
-});
+    }
+}]);

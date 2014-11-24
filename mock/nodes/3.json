@@ -1,0 +1,10 @@
+{
+    "id": 3,
+    "type": "epic",
+    "url": "/about/jumbotron",
+    "properties": {
+        "title": "Jumbotron 123 heading",
+        "lead": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.",
+        "content": "<a class=\"btn btn-lg btn-success\" href=\"#\" role=\"button\">Sign up today</a>"
+    }
+}

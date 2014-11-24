@@ -1,14 +1,14 @@
 [
     {
-        "url": "about",
+        "url": "/about",
         "title": "About us"
     },
     {
-        "url": "asdf",
+        "url": "/asdf",
         "title": "32",
         "children": [
             {
-                "url": "asdf",
+                "url": "/asdf",
                 "title": "321"
             }
         ]

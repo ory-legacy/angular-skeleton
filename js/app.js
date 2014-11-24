@@ -5,17 +5,18 @@
 var app = angular.module('baldurApp', [
     'ngRoute',
     'baldurControllers',
-    'baldurDirectives'
+    'baldurDirectives',
+    'baldurFilters',
+    'ngSanitize'
 ]);
 
-app.config(['$routeProvider',
-    function ($routeProvider) {
-        $routeProvider.
-            when('/home', {
-                templateUrl: 'partials/home.html',
-                controller: 'HomeCtrl'
-            }).
-            otherwise({
-                redirectTo: '/home'
-            });
-    }]);
+app.config(['$routeProvider', '$locationProvider',
+    function ($routeProvider, $locationProvider) {
+
+        $routeProvider.otherwise({
+            controller: 'BaldurCtrl'
+        });
+
+        $locationProvider.html5Mode(true).hashPrefix('!');
+    }
+]);

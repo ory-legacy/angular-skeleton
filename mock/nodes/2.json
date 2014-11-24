@@ -1,0 +1,21 @@
+{
+    "id": 1,
+    "type": "default",
+    "url": "/about",
+    "properties": {
+        "title": "Peter!!",
+        "meta": {
+            "title": "lolwat"
+        }
+    },
+    "children": [
+        {
+            "id": 3,
+            "type": "epic"
+        },
+        {
+            "id": 4,
+            "type": "article"
+        }
+    ]
+}

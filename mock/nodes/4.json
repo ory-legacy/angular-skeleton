@@ -1,0 +1,10 @@
+{
+    "id": 4,
+    "type": "article",
+    "url": "/about/wowy",
+    "properties": {
+        "title": "Wowy!!",
+        "teaser": "Cras justo",
+        "content": "Cras <b>asdf</b> justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus."
+    }
+}

@@ -4,7 +4,7 @@
 
 var app = angular.module('baldurControllers', []);
 
-app.controller('HomeCtrl', ['$scope',
+app.controller('BaldurCtrl', ['$scope',
         function ($scope) {
 
         }
