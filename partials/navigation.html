@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="navigation-nested.html">
 
-    <a href="#{{item.url}}"
+    <a ng-href="#{{item.url}}"
        class="{{item.children && 'dropdown-toggle'}}"
        data-toggle="{{item.children && 'dropdown'}}" role="button" aria-expanded="false">{{item.title}}
         <span class="caret" ng-if="item.children"></span></a>

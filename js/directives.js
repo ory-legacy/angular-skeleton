@@ -19,16 +19,18 @@ app.directive('baldurNavigation', function ($q, $http) {
     };
 });
 
-app.directive('baldurPage', function ($compile, $http) {
+app.directive('baldurPage', function ($compile, $http, $location) {
     return {
         restrict: 'EA',
         scope: {},
         link: function (scope, element, attrs) {
 
+            console.log($location.url());
+
             // Todo
             var route = '/home';
 
-            $http.post('mock/mapper/url.json', {url: route}).then(function(resolved) {
+            $http.post('mock/mapper/' + route + '.json', {url: route}).then(function(resolved) {
                 $http.get('mock/nodes/' + resolved.data.id + '.json').then(function(node) {
                     $http.get('partials/nodes/' + node.data.type + ".html").then(function(template){
                         scope = angular.extend(scope, node.data);
