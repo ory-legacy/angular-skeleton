@@ -1,0 +1,9 @@
+<h2>
+    {{properties.title}}
+    <small ory-message>Updated by {{author.username}} {{created | date}} modified {{modified | date}}</small>
+</h2>
+<p>{{properties.teaser}}</p>
+<a ng-href="{{url}}" ory-message>Read more...</a>
+
+<ory-get api="versioning/repositories" repository="{{ id }}">
+</ory-get>

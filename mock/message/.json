@@ -1,0 +1,5 @@
+{
+    "Brand": "Ory Example",
+    "Updated by {{author.username}} {{created | date}}": "Aktualisiert von {{author.username}} {{created | date}}",
+    "&copy; {{year}} brand": "&copy; {{year}} brand"
+}

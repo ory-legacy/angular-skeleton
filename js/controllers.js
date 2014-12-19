@@ -2,9 +2,9 @@
 
 /* Controllers */
 
-var app = angular.module('baldurControllers', []);
+var app = angular.module('oryControllers', []);
 
-app.controller('BaldurCtrl', ['$scope',
+app.controller('oryCtrl', ['$scope',
         function ($scope) {
 
         }

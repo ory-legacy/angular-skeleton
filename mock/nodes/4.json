@@ -2,6 +2,16 @@
     "id": 4,
     "type": "article",
     "url": "/about/wowy",
+    "author": {
+        "id": "12345678",
+        "username": "myuserzup"
+    },
+    "editor": {
+        "id": "12345678",
+        "username": "myuserzup"
+    },
+    "created": "Fri Mar 30 2012 02:00:00 GMT+0200",
+    "modified": "Thu Mar 29 2012 02:00:00 GMT+0200",
     "properties": {
         "title": "Wowy!!",
         "teaser": "Cras justo",

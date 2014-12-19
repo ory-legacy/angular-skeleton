@@ -1,14 +1,14 @@
 'use strict';
 
 /* Directives */
-var app = angular.module('baldurDirectives', []);
+var app = angular.module('oryDirectives', []);
 
-app.directive('baldurNavigation', function ($q, $http) {
+app.directive('oryNavigation', function ($q, $http) {
     return {
         restrict: 'A',
         scope: {},
         link: function (scope, element, attrs) {
-            var name = attrs.baldurNavigation;
+            var name = attrs.oryNavigation;
             $http.get('mock/navigations/' + name + '.json').then(function (result) {
 
                 // This app relies on relative paths, not absolute ones. Therefore we need to strip the leading /
@@ -20,12 +20,71 @@ app.directive('baldurNavigation', function ($q, $http) {
             });
         },
         templateUrl: function (elem, attrs) {
-            return attrs.template || 'partials/navigation.html'
+            return attrs.template || 'templates/navigation.html'
         }
     };
 });
 
-app.directive('baldurRender', ["$compile", "$http", "$location", function ($compile, $http, $location) {
+app.directive('oryGet', ['$q', '$http', 'oryResources', '$compile', function ($q, $http, oryResources, $compile) {
+    return {
+        restrict: 'E',
+        scope: {},
+        link: function (scope, element, attrs) {
+            var api = attrs.api,
+                params = {};
+
+            if (oryResources[api] === undefined) {
+                console.log('No resource found for:', api);
+                return;
+            }
+
+            angular.forEach(attrs, function(v, k){
+                if(k !== 'api' && k.indexOf('$') == -1){
+                    params[k] = v;
+                }
+            });
+            console.log(params);
+
+            oryResources[api].get(params, function (result) {
+                var s = angular.extend(scope, result);
+                $compile(element.contents())(s);
+            }, function (message) {
+                console.log('Could not get "', api, '":', message);
+            });
+        }
+    };
+}]);
+
+app.directive('oryMessage', function ($q, $http, $compile) {
+    return {
+        restrict: 'EA',
+        link: function (scope, element, attrs) {
+            var message = element.html();
+
+            $http.post('mock/message/.json', {'message': message}).then(function (result) {
+
+                element.html(result.data[message]);
+                $compile(element.contents())(scope);
+            });
+        }
+    };
+});
+
+app.directive('oryMessage', function ($q, $http, $compile) {
+    return {
+        restrict: 'EA',
+        link: function (scope, element, attrs) {
+            var message = element.html();
+
+            $http.post('mock/message/.json', {'message': message}).then(function (result) {
+                element.html(result.data[message]);
+                $compile(element.contents())(scope);
+            });
+        }
+    };
+});
+
+app.directive('oryRender', ["$rootScope", "$compile", "$http", "$location", "$route", function ($rootScope, $compile, $http, $location, $route) {
     return {
         restrict: 'EA',
         scope: {
@@ -61,9 +120,11 @@ app.directive('baldurRender', ["$compile", "$http", "$location", function ($comp
 
             render();
 
-            scope.$watch("$routeChangeStart", function (event, next, current) {
-                console.log("wowy",  $location.url());
-            });
+            if (scope.scope !== undefined) {
+                $rootScope.$on("$locationChangeSuccess", function (event, next, current) {
+                    $route.reload();
+                });
+            }
         }
     }
 }]);

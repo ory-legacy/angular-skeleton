@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul ory-navigation="top" template="templates/navigation/top.html" class="nav nav-pills pull-right">
+            </ul>
+        </nav>
+        <h3 class="text-muted">
+            <a href="/" ory-message>Brand</a>
+        </h3>
+    </div>
+
+    <div ory-render template-dir="templates/content"></div>
+
+    <hr>
+
+    <footer>
+        <a href="/" ory-message>&copy; {{year}} brand</a>
+        <nav>
+            <ul ory-navigation="footer" template="templates/navigation/footer.html" class="nav nav-pills">
+            </ul>
+        </nav>
+    </footer>
+</div>

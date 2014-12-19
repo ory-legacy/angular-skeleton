@@ -2,7 +2,7 @@
 
 /* Filters */
 
-angular.module('baldurFilters', []).filter('striptags', function () {
+angular.module('oryFilters', []).filter('striptags', function () {
     return function (input, allowed) {
         var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
             commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;

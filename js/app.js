@@ -2,19 +2,19 @@
 
 /* App Module */
 
-var app = angular.module('baldurApp', [
+var app = angular.module('oryApp', [
     'ngRoute',
-    'baldurControllers',
-    'baldurDirectives',
-    'baldurFilters',
+    'oryControllers',
+    'oryDirectives',
+    'oryServices',
+    'oryFilters',
     'ngSanitize'
 ]);
 
 app.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
-
         $routeProvider.otherwise({
-            controller: 'BaldurCtrl'
+            templateUrl: "templates/app.html"
         });
 
         $locationProvider.html5Mode(true).hashPrefix('!');

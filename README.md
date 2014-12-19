@@ -1,49 +1,25 @@
-angular-simple-app
+angular-prototype
 ================
-
-Baldur.io is a *Content Repository*, similar to traditional *Content Management Systems (CMS)* like *Drupal*, *Wordpress*,
-*Joomla* or others.
-
-This application is an example website based on baldur, but in contrast to traditional CMS there is no need for any
-server side logic like PHP, MySQL, Java, Python, Ruby, ASP or even Apache!
-
-You're not a developer? Don't be afraid. It's really simple.
-
-You are a developer? Don't be afraid. You may find more advanced skeletons here:
-
-* Webapp built with nodejs, npm, bower and tests.
-* A protected website.
-* A Website based on user generated content.
-* ...
-
-Baldur works with all programming languages. There are some libraries which help you to progress faster:
-* Java Library
-* PHP Library
-* Go Library
-* ...
 
 ## Install
 
-1. Create a new app on [baldur.io](https://baldur.io) - don't worry, it's free of charge.
-* Baldur provides you with a *public access token*. Copy that into your clipboard!
-* [Download (missing link)](/) the package and extract it anywhere you want.
-* Open `config.json` and replace `enter your token here` with the *public access token* you just copied.
-* You will need Apache, Ngnix or some other http service to serve your web app. For development we precompiled a http service:
- * [Windows x64 HTTP Server](/)
- * [Linux x64 HTTP Server](/)
- * [Mac OS x64 HTTP Server](/)
+Windows: Follow [these steps](https://gist.github.com/nullivex/7115612). Especially the "Path" part.
 
-You may [edit (missing link)](/) or [create (missing link)](/) pages or content. The website will update these
-contents automatically.
+```
+npm install api-mock -g
+```
 
-## Customize your website
- 
-### Customize the template
+*Don't forget that you might need super user rights to do this, especially on Windows: Right click on cmd.exe and choose "Execute as administrator"*
 
-### Customize logic
+## Running
 
-## Bringing your website to the next level
+```
+api-mock ./api.md --port 3000
+```
 
-### Protect your content 
+See if it works: [works](http://localhost:3000/health).
 
-### Improve your rankings (SEO)
+## Resources
+
+### Message
+
